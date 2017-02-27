@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../js/angular-1.5.8/angular.js"></script>
+        <script src="../../js/angular-1.5.8/i18n/angular-locale_zh-cn.js"></script>
+
+    </head>
+    <body ng-app ng-init="price=123.00">
+    	<!-- currency 将价格转变成我们习惯的中文方式 -->
+    	<div>{{ price | currency }}</div>
+    </body>
+</html>

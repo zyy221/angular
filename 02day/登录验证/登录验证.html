@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../js/angular-1.5.8/angular.js"></script>
+    </head>
+    <body ng-app="mainApp" ng-controller="mainController">
+    	用户名: <input type="text" ng-model="name">
+
+    	密码 : <input type="password" ng-model="password">
+
+    	<input type="button" value="提交" ng-click="func()">
+
+    	<div>{{ message }}</div>
+    </body>
+    <script>
+    angular.module('mainApp' , [])
+
+    	.controller('mainController' , function( $scope ){
+
+    		$scope.func = function(){
+
+    			var name = $scope.name,
+    				password = $scope.password;
+
+    			$scope.message = 
+
+    				name && name.trim().length > 0 && password && password.trim().length > 0
+    				? "登录成功"
+    				: "请输入完整信息";
+
+    		}
+    	})
+    </script>
+</html>

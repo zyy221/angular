@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../js/angular-1.5.8/angular.js"></script>
+        <script src="../js/jquery-3.1.0.js"></script>
+    </head>
+    <body ng-app="mainApp" ng-controller="mainController">
+    	<div ng-mouseover="over()" ng-mouseleave="out()" ng-style="sty"></div>
+
+    </body>
+
+    <script>
+    	angular.module('mainApp' , [])
+    		.controller('mainController' , function($scope){
+
+    			$scope.sty={
+    				width:"200px",
+    				height:"100px",
+    				border:"1px dashed red"
+    			}
+    			$scope.over = function(){
+    				$scope.sty.backgroundColor = 'red';
+    			}
+
+    			$scope.out = function(){
+    				$scope.sty.backgroundColor = '';
+    			}
+    		})
+    </script>
+</html>

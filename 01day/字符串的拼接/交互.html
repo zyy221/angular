@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../../js/template-native.js"></script>
+        <script type="text/template" id="templateId">	
+        <table border="1" width="400">	
+        	<% for(var i=0;i<datas.length;i++){%>
+        		<% if(!datas[i].isShow ) continue;%>
+        		<tr>
+        			<td><%= datas[i].name%></td>
+        			<td><%= datas[i]['age']%></td>
+        			<td><%= datas[i]['gender']%></td>
+        		</tr>
+        	<% }%>
+        </table>
+        </script>
+    </head>
+    <body>
+    <input type="text" id="txt"><input type="button" value="查询" id="btn">
+    <div></div>
+    </body>
+    <script>
+    	var obj={
+    		datas: [
+		        {name:'jim1',age:20,gender:'男', isShow: true },
+		        {name:'jim2',age:18,gender:'女', isShow: true },
+		        {name:'jim3',age:22,gender:'男', isShow: true },
+		        {name:'jim4',age:20,gender:'男', isShow: true },
+		        {name:'jim5',age:24,gender:'女', isShow: true },
+		        {name:'jim6',age:20,gender:'男', isShow: true },
+		        {name:'jim7',age:28,gender:'男', isShow: true },
+		        {name:'jim8',age:20,gender:'女', isShow: true }
+	    	]
+    	}
+
+
+    	//点击事件 获取相应的数据
+    	var div = document.querySelectorAll('div')[0],
+    	    txt = document.querySelectorAll('#txt')[0],
+    		btn = document.querySelectorAll('#btn')[0];
+
+    	//页面渲染
+    	function render(){
+    		div.innerHTML = template('templateId' , obj);
+    	}
+
+    	render();
+
+
+    	//事件
+    	btn.onclick = function () {
+    		//获取用户输入的数据
+    		var text = txt.value;
+    		if(text.trim().length == 0) return;
+
+    		obj.datas.forEach(function( v , i){
+    			v.isShow = v.name == text;
+    		})
+
+    		//渲染
+    		render();
+    	}
+    </script>
+</html>

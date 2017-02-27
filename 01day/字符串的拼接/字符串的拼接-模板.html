@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../../js/template-native.js"></script>
+        <script type="text/template" id="templateId">
+        	<% for(var i=0;i<datas.length;i++){%>
+        		<tr>
+        			<td><%= datas[i].name%></td>
+        			<td><%= datas[i].age%></td>
+        			<td><%= datas[i].gender%></td>
+        		</tr>
+        	<% }%>
+        </script>
+    </head>
+    <body>
+    <table border="1" width="400">
+    	 
+    </table>
+    </body>
+    <script>
+    	var obj={
+    		datas: [
+		        {name:'jim1',age:20,gender:'男'},
+		        {name:'jim2',age:18,gender:'女'},
+		        {name:'jim3',age:22,gender:'男'},
+		        {name:'jim4',age:20,gender:'男'},
+		        {name:'jim5',age:24,gender:'女'},
+		        {name:'jim6',age:20,gender:'男'},
+		        {name:'jim7',age:28,gender:'男'},
+		        {name:'jim8',age:20,gender:'女'}
+	    	]
+    	}
+	    var html = template('templateId' , obj);
+	    document.querySelector('table').innerHTML=html;
+    </script>
+</html>

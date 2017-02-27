@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../js/angular-1.5.8/angular.js"></script>
+        <style>
+			.c{
+				background-color: #000;
+			}
+        </style>
+    </head>
+    <body ng-app="mainApp" ng-controller="mainController" ng-class="{ c:btn == '开' }">
+
+    	<button ng-click="console.log('哈哈哈')">click</button>
+
+    	<button ng-click="val = !val">点击修改变量</button>
+
+    	<div>{{ val }}</div>
+
+    	<button ng-click="btn = btn == '关' ? '开' : '关'">{{ btn }}</button>
+
+
+    </body>
+
+    <script>
+    angular.module('mainApp' , [])
+    	.controller('mainController' , function( $scope ){
+
+    		$scope.console = window.console;
+
+    		$scope.val = true;
+
+    		$scope.btn = '关';
+
+
+    	})
+    </script> 
+</html>
