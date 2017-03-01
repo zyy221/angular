@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../js/angular-1.5.8/angular.js"></script>
+    </head>
+    <body ng-app="mainApp" ng-controller="mainController">
+    	<div>{{ 123 | func}}</div>
+    	<div>{{ num }}</div>
+    </body>
+    <script>
+    angular.module('mainApp' , [])
+    	.controller('mainController' , function( $scope , $filter){
+    		$scope.num = $filter('func')(456);
+    	}) 
+    	.filter('func' , function( ){
+    			return function( v ){
+    				return '(' + v + ')';
+    			}
+    		})
+    </script>
+</html>

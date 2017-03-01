@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../js/angular-1.5.8/angular.js"></script>
+    </head>
+    <body ng-app='mainApp'>
+    	<div ng-controller="mainController">
+    		
+    		<!-- Directive -->
+    		<div zy-Directive="haha">123</div>
+
+
+    	</div>
+    </body>
+    <script>
+    angular.module('mainApp' , [])
+    	//定义指令
+    	.diretive('zyDirective' , function(){
+    		return function(){
+    			console.log(arguments);
+    		}
+    	})
+    </script>
+</html>

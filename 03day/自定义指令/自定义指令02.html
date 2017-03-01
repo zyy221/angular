@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../js/angular-1.5.8/angular.js"></script>
+    </head>
+    <body ng-app="mainApp">
+    	<div ng-controller="mainController">
+    		<div my-Directive="list" Itcast="123" iheima="456"></div>
+    	</div>
+    </body>
+    <script>
+    	angular.module('mainApp' , [])
+    		.directive('myDirective' , function(){
+    			return function( scope , elems , attrs){
+
+    				var attr = attrs.myDirective;
+
+    				var datas = scope[ attr ];
+
+    				elems.append(datas.map(function( v ){
+
+    					return '<div>' + v + '</div>';
+    				}).join(''));
+    			}
+    		})
+    		.controller('mainController' , function( $scope ){
+
+    			$scope.list = '首页,主页,副业,产业,爷爷,阿爷,毕业'.split(',');
+    		})
+    </script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../../js/angular-1.5.8/angular.js"></script>
+    </head>
+    <body ng-app="mainApp">
+    		<div my-Directive="[4,5,6,7,8,9,10]"></div>
+    </body>
+    <script>
+    	angular.module('mainApp' , [])
+    		.directive('myDirective' , function(){
+
+    			return function( scope , elems , attrs){
+
+    				var datas = JSON.parse(attrs.myDirective);
+
+    				elems.append(datas.map(function( v ){
+    					return '<div>' + v + '</div>';
+    				}).join( '' ));
+    			}
+    		})
+
+    </script>
+</html>

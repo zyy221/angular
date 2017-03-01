@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="../js/angular-1.5.8/angular.js"></script>
+    </head>
+    <body ng-app='mainApp' ng-controller="mainController">
+    	<div ng-repeat='item in list track by $index '>{{ item }}</div>
+    </body>
+    <script>
+    angular.module('mainApp' , [])
+    	.controller('mainController' , function( $scope ) {
+    		var menu = '1,1,1,1,1,1,1,1,1'.split(',');
+    		$scope.list = menu;
+    	})
+    </script>
+</html>
